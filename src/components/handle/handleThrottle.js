@@ -19,35 +19,23 @@
 
 function throttle(fn, options) {
   let timer = null;
-  let wait = 0;
+  let wait = typeof options === "number" ? options : options.wait;
   let startDate = new Date();
 
-  if (typeof options === "number") {
-    wait = options;
-  }
-  if (options && typeof options === "object") {
-    wait = options.wait;
-  }
-
-  function throttle() {
+  return function (...args) {
     let _context = this;
-    let args = [...arguments];
-
     let currentDate = new Date();
     clearTimeout(timer);
 
     if (currentDate - startDate >= wait) {
       fn.apply(_context, args);
-      // 只在这里重置 startDate，因为不能保证函数是连续执行的
-      // ßthrottle 只需要在fn第一次执行时计数
       startDate = currentDate;
-    } else {
-      timer = setTimeout(function () {
-        fn.apply(_context, args);
-      }, wait);
     }
-  }
-  return throttle;
+
+    timer = setTimeout(() => {
+      fn.apply(_context, args);
+    }, wait);
+  };
 }
 
 function mousemove() {

@@ -41,7 +41,7 @@ document.addEventListener("click", () => {
 // 添加消息到消息队列的方式： setTimeout
 // 第一个参数 回调函数 fm
 // 第二个参数 wait 决定了延迟多少毫秒将 fn 添加在消息队列中。
-// wait 并不是执行 fn 准确的延迟时间，
+//  wait 并不是执行 fn 准确的延迟时间，
 //  实际执行时间要看 fn 在消息队列中的顺序，以及 prev message 的执行时间。
 
 (function () {
@@ -135,4 +135,3 @@ console.log(9);
 // 5
 // -- // setTimeout
 // 4
-

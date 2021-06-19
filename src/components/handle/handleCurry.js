@@ -5,41 +5,38 @@
 function mutli(a) {
   return function (b) {
     return function (c) {
-      return a + b + c
-    }
-  }
+      return a + b + c;
+    };
+  };
 }
 
 // #2 柯里化实现
 function mutli(a, b, c) {
-  return a * b * c
+  return a * b * c;
 }
 
-function _curreny(fn, ...args) {
-  let len = fn.length; // 函数参数列表
-
+function _curry(fn, ...args) {
+  let len = fn.length;
   if (args.length >= len) {
-    return fn(...args)
+    return fn(...args);
   }
-  return function () {
-    let r_args = [...arguments];
-    let a_args = args.concat(r_args)
-    return _curreny.call(this, fn, ...a_args)
-  }
+  return function (...rest) {
+    let params = args.concat(rest);
+    return _curry.call(this, fn, params);
+  };
 }
 
 // 不限定函数参数的 mutli 函数
 function mutli() {
   let args = [...arguments];
   let fn = function () {
-    return mutli.apply(this, args.concat([...arguments]))
+    return mutli.apply(this, args.concat([...arguments]));
   };
 
   fn.toString = function () {
     return args.reduce((a, b) => {
       return a * b;
-    })
-  }
-  return fn
+    });
+  };
+  return fn;
 }
-
