@@ -129,12 +129,3 @@ const App = () => {
 };
 
 export default App;
-
-<div style={{ display: 'flex', justifyContent: 'center', width: '500px', height: '500px' }}>
-  <div style={{ height: '40%', paddingLeft: '40%', border: '1px solid red' }}>
-    1
-  </div>
-  <div style={{ height: '40%', paddingLeft: '40%', border: '1px solid red' }}>
-    2
-  </div>
-</div>
