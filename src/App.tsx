@@ -4,33 +4,34 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Demo1 from './components/chapter1';
 import Demo2 from './components/chapter2';
 import Demo4 from './components/chapter4';
-import ReactRefs from './components/interview-react/ReactRefs';
-import ReactLifeCycle from './components/interview-react/ReactLifeCycle';
+import ReactRefs from './components/react-api/ReactRefs';
+import ReactLifeCycle from './components/react-api/ReactLifeCycle';
 
-import ReactUseState from './components/interview-react/ReactUseState';
-import ReactUseEffect from './components/interview-react/ReactUseEffect';
-import ReactUseContext from './components/interview-react/ReactUseContext';
-import ReactUseReducer from './components/interview-react/ReactUseReducer';
-import ReactUseCallback from './components/interview-react/ReactUseCallback';
-import ReactUseMemo from './components/interview-react/ReactUseMemo';
-import ReactUseRef from './components/interview-react/ReactUseRef';
-import ReactUseImperativeHandle from './components/interview-react/ReactUseImperativeHandle';
-import ReactUseLayoutEffect from './components/interview-react/ReactUseLayoutEffect';
+import ReactUseState from './components/react-api/ReactUseState';
+import ReactUseEffect from './components/react-api/ReactUseEffect';
+import ReactUseContext from './components/react-api/ReactUseContext';
+import ReactUseReducer from './components/react-api/ReactUseReducer';
+import ReactUseCallback from './components/react-api/ReactUseCallback';
+import ReactUseMemo from './components/react-api/ReactUseMemo';
+import ReactUseRef from './components/react-api/ReactUseRef';
+import ReactUseImperativeHandle from './components/react-api/ReactUseImperativeHandle';
+import ReactUseLayoutEffect from './components/react-api/ReactUseLayoutEffect';
 
 import ReactDidUpdate from './components/react-lifecycle/ReactDidUpdate';
 import ReactUseForceUpdate from './components/react-lifecycle/ReactUseForceUpdate';
 
-import ReactDebounce from './components/react-hooks-custom/UseDebounce';
+import ReactDebounce from './components/react-hooks/UseDebounce';
 import ReactGetSnapshotBeforeUpdate from './components/react-lifecycle/ReactGetSnapshotBeforeUpdate';
 import ReactUnMountNode from './components/react-dom-api/ReactUnMountNode';
 import ReactFindDomNode from './components/react-dom-api/ReactFindDomNode';
 import ReactCreatePortal from './components/react-dom-api/ReactCreatePortal';
-import ReactPureComponent from './components/interview-react/ReactPureComponent';
-import ReactCloneElement from './components/interview-react/ReactCloneElement';
-import ReactSuspense from './components/interview-react/ReactSuspense';
+import ReactPureComponent from './components/react-api/ReactPureComponent';
+import ReactCloneElement from './components/react-api/ReactCloneElement';
+import ReactSuspense from './components/react-api/ReactSuspense';
 import CssCenter from './components/css/Center';
+import VH from './components/css/VH';
 
-const ReactMemo = lazy(() => import('./components/interview-react/ReactMemo'));
+const ReactMemo = lazy(() => import('./components/react-api/ReactMemo'));
 
 const App = () => {
   return (
@@ -59,6 +60,9 @@ const App = () => {
                 <Link to='/react-memo'>React.memo</Link>
               </li>
               <li>
+                <Link to='/react-hooks'>React Hooks</Link>
+              </li>
+              <li>
                 <Link to='/css-center'>Css Center</Link>
               </li>
             </ul>
@@ -79,54 +83,12 @@ const App = () => {
                 <CssCenter />
               </Route>
 
+              <Route path='/react-hooks'>
+                <ReactDebounce />
+              </Route>
+
               <Route path='/'>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <div
-                    style={{
-                      width: '40vh',
-                      height: '40vh',
-                      border: '1px solid red',
-                    }}
-                  >
-                    1
-                  </div>
-                  <div
-                    style={{
-                      width: '40vh',
-                      height: '40vh',
-                      border: '1px solid green',
-                    }}
-                  >
-                    2
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    width: '500px',
-                    height: '500px',
-                  }}
-                >
-                  <div
-                    style={{
-                      height: '40%',
-                      paddingLeft: '40%',
-                      border: '1px solid red',
-                    }}
-                  >
-                    1
-                  </div>
-                  <div
-                    style={{
-                      height: '40%',
-                      paddingLeft: '40%',
-                      border: '1px solid green',
-                    }}
-                  >
-                    2
-                  </div>
-                </div>
+                <VH />
               </Route>
             </Switch>
           </div>
