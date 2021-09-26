@@ -28,6 +28,7 @@ import ReactCreatePortal from './components/react-dom-api/ReactCreatePortal';
 import ReactPureComponent from './components/interview-react/ReactPureComponent';
 import ReactCloneElement from './components/interview-react/ReactCloneElement';
 import ReactSuspense from './components/interview-react/ReactSuspense';
+import CssCenter from './components/css/Center';
 
 const ReactMemo = lazy(() => import('./components/interview-react/ReactMemo'));
 
@@ -57,6 +58,9 @@ const App = () => {
               <li>
                 <Link to='/react-memo'>React.memo</Link>
               </li>
+              <li>
+                <Link to='/css-center'>Css Center</Link>
+              </li>
             </ul>
           </nav>
           <div style={{ padding: '48px' }}>
@@ -69,6 +73,10 @@ const App = () => {
               </Route>
               <Route path='/react-memo'>
                 <ReactMemo />
+              </Route>
+
+              <Route path='/css-center'>
+                <CssCenter />
               </Route>
 
               <Route path='/'>

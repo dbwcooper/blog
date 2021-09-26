@@ -33,30 +33,30 @@ export default () => {
   }, []);
   return (
     <React.Fragment>
-      <div className="container">
-        <div className="col-8">
-          <div className="left">
-            <div className="left-child">left</div>
+      <div className='container'>
+        <div className='col-8'>
+          <div className='left'>
+            <div className='left-child'>left</div>
           </div>
         </div>
-        <div className="col-16">
-          <div className="right" ref={refRightDom}>
+        <div className='col-16'>
+          <div className='right' ref={refRightDom}>
             right <div>js 让这个块自动增高</div>
           </div>
         </div>
       </div>
       <div>
         <h3>1. 父容器为 flex布局</h3>
-        <ol className="common-ul">
+        <ol className='common-ul'>
           <li>
             <p>left容器内只有一级嵌套；</p>
-            <p className="active">left 设置 height：100%</p>
-            <p className="active">left-child 设置 height: 100%;</p>
+            <p className='active'>left 设置 height：100%</p>
+            <p className='active'>left-child 设置 height: 100%;</p>
             <CodePreview>{example1}</CodePreview>
           </li>
           <li>
             <p>left容器内多级嵌套；</p>
-            <p className="active">
+            <p className='active'>
               <ul>
                 <li>设置left容器 为 position: relative;</li>
                 <li>.left-child 设置position: absolute; height: 100%;</li>
@@ -77,9 +77,9 @@ export default () => {
           </li>
         </ul>
       </div>
-      <div className="container-2">
-        <div className="col-8">
-          <div className="left">
+      <div className='container-2'>
+        <div className='col-8'>
+          <div className='left'>
             <div>
               <div>
                 <div>left</div>
@@ -87,8 +87,8 @@ export default () => {
             </div>
           </div>
         </div>
-        <div className="col-16">
-          <div className="right" ref={refRightDom2}>
+        <div className='col-16'>
+          <div className='right' ref={refRightDom2}>
             right <div>js 让这个块自动增高</div>
           </div>
         </div>

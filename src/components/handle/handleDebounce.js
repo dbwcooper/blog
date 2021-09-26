@@ -21,10 +21,10 @@ function debounce(fn, options) {
   let delay = 0;
   let immediate = false;
 
-  if (typeof options === "number") {
+  if (typeof options === 'number') {
     delay = options;
   }
-  if (options && typeof options === "object") {
+  if (options && typeof options === 'object') {
     delay = options.delay;
     immediate = options.immediate;
   }
@@ -45,7 +45,7 @@ function debounce(fn, options) {
 }
 
 function test(arg) {
-  console.log("arg: ", arg);
+  console.log('arg: ', arg);
 }
 
 function getName() {
