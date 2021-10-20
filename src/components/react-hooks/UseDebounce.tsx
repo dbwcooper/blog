@@ -1,4 +1,10 @@
-import React, { useCallback, useRef, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useRef,
+  useEffect,
+  useState,
+  useLayoutEffect,
+} from 'react';
 
 // https://zhuanlan.zhihu.com/p/134675915
 function useDebounce(fn, time) {
@@ -23,12 +29,19 @@ function useDebounce(fn, time) {
   );
 }
 
-function Demo1() {
+function Demo1({ count }) {
   const [counter, setCounter] = useState(0);
 
   const handleClick = useDebounce(function () {
     setCounter(counter + 1);
-  }, 1000);
+  }, 5000);
+
+  useEffect(() => {
+    console.log('didmount: ', count);
+    return () => {
+      console.log('willunmount: ', count);
+    };
+  }, []);
 
   return (
     <div style={{ padding: 30, border: '1px solid green' }}>
@@ -67,10 +80,52 @@ function Demo2() {
 }
 
 export default function () {
+  // test: batch update
+  const [count, setCount] = useState(0);
+  useEffect(function () {
+    setTimeout(() => {
+      setCount(count + 1);
+      console.log('count1: ', count);
+      setCount(count + 1);
+      console.log('count2: ', count);
+    }, 1000);
+  }, []);
+
+  useLayoutEffect(() => {
+    console.log('commit', count);
+  });
+
+  const onAdd = useCallback(() => {
+    setCount((count) => count + 1);
+    console.log('count: ', count);
+  }, []);
+  console.log('render', count);
   return (
     <div>
-      <Demo1 />
+      <button onClick={onAdd}>add</button>
+      <div>count: {count}</div>
+      <Demo1 key={count} count={count} />
       <Demo2 />
     </div>
   );
 }
+
+function output(i) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(i);
+    }, i);
+  }).then(() => {
+    console.log(i);
+  });
+}
+
+let arr = [];
+for (var i = 0; i < 5; i++) {
+  arr.push(output(i));
+}
+
+Promise.all(arr).then(() => {
+  console.log(i);
+});
+// 输出结果
