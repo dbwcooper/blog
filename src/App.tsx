@@ -30,6 +30,7 @@ import ReactCloneElement from './components/react-api/ReactCloneElement';
 import ReactSuspense from './components/react-api/ReactSuspense';
 import CssCenter from './components/css/Center';
 import VH from './components/css/VH';
+import CssVariable from './components/css-variables';
 
 const ReactMemo = lazy(() => import('./components/react-api/ReactMemo'));
 
@@ -63,7 +64,10 @@ const App = () => {
                 <Link to='/react-hooks'>React Hooks</Link>
               </li>
               <li>
-                <Link to='/css-center'>Css Center</Link>
+                <Link to='/css-center'>CSS Center</Link>
+              </li>
+              <li>
+                <Link to='/css-variables'>CSS variables</Link>
               </li>
             </ul>
           </nav>
@@ -86,7 +90,9 @@ const App = () => {
               <Route path='/react-hooks'>
                 <ReactDebounce />
               </Route>
-
+              <Route path='/css-variables'>
+                <CssVariable />
+              </Route>
               <Route path='/'>
                 <VH />
               </Route>

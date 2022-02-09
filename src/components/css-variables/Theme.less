@@ -1,0 +1,76 @@
+@import './color/colorPalette.less';
+
+:root {
+  /** 基础颜色值 Neutral **/
+  --color-gray0: #ffffff;
+  --color-gray1: #f7f8f9;
+  --color-gray2: #f1f2f3;
+  --color-gray3: #eaebec;
+  --color-gray4: #d7d8d9;
+  --color-gray5: #c0c3c4;
+  --color-gray6: #7c878e;
+  --color-gray7: #333f48;
+
+  /** 网站基色 Brand **/
+  --color-primary: #0076ce;
+  --color-secondary: #41b6e6;
+
+  --hue: hue(var(--color-primary)); // 220
+  --sat: saturation(var(--color-primary));
+  --light: lightness(var(--color-primary));
+
+  --height: 100px;
+
+  --primary-color: var(--color-primary);
+  --primary-color-1: hsla(var(--hue), var(--sat), var(--light));
+  --primary-color-2: hsla(
+    calc(var(--hue) - 111),
+    calc(var(--sat) * 1%),
+    calc(var(--light) * 1%)
+  );
+}
+/** 基础颜色值 Neutral **/
+@color-gray0: var(--color-gray0);
+@color-gray1: var(--color-gray1);
+@color-gray2: var(--color-gray2);
+@color-gray3: var(--color-gray3);
+@color-gray4: var(--color-gray4);
+@color-gray5: var(--color-gray5);
+@color-gray6: var(--color-gray6);
+@color-gray7: var(--color-gray7);
+
+// 兼容老的变量
+@snx-m-color-1: @color-gray0;
+@snx-m-color-2: @color-gray1;
+@snx-m-color-3: @color-gray2;
+@snx-m-color-4: @color-gray3;
+@snx-m-color-5: @color-gray4;
+@snx-m-color-6: @color-gray5;
+@snx-m-color-7: @color-gray6;
+@snx-m-color-8: @color-gray7;
+@snx-m-color-9: @color-gray7;
+@snx-m-color-10: @color-gray7;
+
+/** 网站基色 Brand **/
+@color-primary: var(--color-primary);
+@color-secondary: var(--color-secondary);
+
+// 兼容老的变量
+@snx-v1-color-5: @color-primary;
+@snx-v1-color-4: lighten(@snx-v1-color-5, 10%);
+@snx-v1-color-6: darken(@snx-v1-color-5, 10%);
+
+
+// TODO: 如何处理 less 函数
+.lighten(@color, @num) {
+
+  --hue: hue(var(--color-primary)); // 220
+  --sat: saturation(var(--color-primary));
+  --light: lightness(var(--color-primary));
+
+}
+
+/** 状态色 Status **/
+@color-8: color(~`colorPalette('@{color-primary}', 5) `);
+
+/** 自定一函数 **/
