@@ -96,8 +96,8 @@
    返回三个函数
   - 函数一 参数为对象 （getState, dispatch）
   - 函数二 参数为 dispatch
-  - 函数三 参数为 action （如果是 reducer 则是 对象，如果是custom reducer 则是 function）
-    - 如果 action 为函数，则函数会被传入 store 的api， getState 和 dispatch
+  - 函数三 参数为 action （如果是 reducer 则是 对象，如果是 custom reducer 则是 function）
+    - 如果 action 为函数，则函数会被传入 store 的 api， getState 和 dispatch
     - 如果 action 为对象，则直接执行 dispatch(action)
 
 - redux-saga
